@@ -24,11 +24,11 @@ namespace Lorekeeper.Auth.Application.Features.Auth.Commands.Login
             var user = await _userRepository.GetUserByEmailAsync(request.Email);
             if (user == null)
             {
-                throw new Exception("User not found");
+                throw new UnauthorizedAccessException("Credenciales incorrectas");
             }
             if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
             {
-                throw new Exception("Invalid password");
+                throw new UnauthorizedAccessException("Credenciales incorrectas");
             }
             var token = _authService.GenerateToken(user);
             return new AuthResponseDto

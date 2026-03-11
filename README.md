@@ -36,7 +36,6 @@ Lorekeeper es un producto para crear y mantener un "story bible" con un flujo ra
 
 Requisitos:
 
-- Node.js 18+ (frontend)
 - .NET 8 SDK (auth/world/gateway)
 - Python 3.11+ (ai)
 - Postgres (local o remoto)

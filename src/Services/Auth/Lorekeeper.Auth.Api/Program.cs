@@ -13,44 +13,45 @@ var builder = WebApplication.CreateBuilder(args);
 
 static string? BuildConnectionString(IConfiguration config)
 {
-    var direct = config.GetConnectionString("DefaultConnection");
-    if (!string.IsNullOrWhiteSpace(direct)) return direct;
-
     var databaseUrl = config["DATABASE_URL"];
-    if (string.IsNullOrWhiteSpace(databaseUrl)) return null;
-
-    if (!Uri.TryCreate(databaseUrl, UriKind.Absolute, out var uri)) return databaseUrl;
-
-    var userInfo = uri.UserInfo.Split(':', 2);
-    var username = Uri.UnescapeDataString(userInfo[0]);
-    var password = userInfo.Length > 1 ? Uri.UnescapeDataString(userInfo[1]) : "";
-    var database = uri.AbsolutePath.TrimStart('/');
-
-    var sslMode = "Require";
-    if (!string.IsNullOrWhiteSpace(uri.Query))
+    if (!string.IsNullOrWhiteSpace(databaseUrl))
     {
-        var parts = uri.Query.TrimStart('?').Split('&', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-        foreach (var part in parts)
+        if (!Uri.TryCreate(databaseUrl, UriKind.Absolute, out var uri)) return databaseUrl;
+
+        var userInfo = uri.UserInfo.Split(':', 2);
+        var username = Uri.UnescapeDataString(userInfo[0]);
+        var password = userInfo.Length > 1 ? Uri.UnescapeDataString(userInfo[1]) : "";
+        var database = uri.AbsolutePath.TrimStart('/');
+
+        var sslMode = "Require";
+        if (!string.IsNullOrWhiteSpace(uri.Query))
         {
-            var kv = part.Split('=', 2);
-            if (kv.Length == 2 && kv[0].Equals("sslmode", StringComparison.OrdinalIgnoreCase))
+            var parts = uri.Query.TrimStart('?').Split('&', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+            foreach (var part in parts)
             {
-                sslMode = kv[1] switch
+                var kv = part.Split('=', 2);
+                if (kv.Length == 2 && kv[0].Equals("sslmode", StringComparison.OrdinalIgnoreCase))
                 {
-                    "disable" => "Disable",
-                    "prefer" => "Prefer",
-                    "allow" => "Allow",
-                    "require" => "Require",
-                    "verify-ca" => "VerifyCA",
-                    "verify-full" => "VerifyFull",
-                    _ => "Require",
-                };
-                break;
+                    sslMode = kv[1] switch
+                    {
+                        "disable" => "Disable",
+                        "prefer" => "Prefer",
+                        "allow" => "Allow",
+                        "require" => "Require",
+                        "verify-ca" => "VerifyCA",
+                        "verify-full" => "VerifyFull",
+                        _ => "Require",
+                    };
+                    break;
+                }
             }
         }
+
+        return $"Host={uri.Host};Port={uri.Port};Database={database};Username={username};Password={password};SslMode={sslMode};Trust Server Certificate=true";
     }
 
-    return $"Host={uri.Host};Port={uri.Port};Database={database};Username={username};Password={password};SslMode={sslMode};Trust Server Certificate=true";
+    var direct = config.GetConnectionString("DefaultConnection");
+    return string.IsNullOrWhiteSpace(direct) ? null : direct;
 }
 
 builder.Services.AddControllers();
@@ -80,6 +81,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AuthDbContext>();
+    db.Database.Migrate();
+}
 
 if (app.Environment.IsDevelopment())
 {

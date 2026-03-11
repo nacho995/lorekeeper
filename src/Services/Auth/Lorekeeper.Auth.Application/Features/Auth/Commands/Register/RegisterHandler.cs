@@ -25,7 +25,7 @@ namespace Lorekeeper.Auth.Application.Features.Auth.Commands.Register
             var emailExists = await _userRepository.GetUserByEmailAsync(request.Email);
             if (emailExists != null)
             {
-                throw new Exception("Email already exists");
+                throw new InvalidOperationException("El email ya está registrado");
             }
             var user = new User
             {

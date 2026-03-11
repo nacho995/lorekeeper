@@ -17,12 +17,26 @@ namespace Lorekeeper.Auth.Api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterCommand command)
         {
-            return Ok(await _mediator.Send(command));
+            try
+            {
+                return Ok(await _mediator.Send(command));
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(new { message = ex.Message });
+            }
         }
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginCommand command)
         {
-            return Ok(await _mediator.Send(command));
+            try
+            {
+                return Ok(await _mediator.Send(command));
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized(new { message = "Credenciales incorrectas" });
+            }
         }
     }
 }
