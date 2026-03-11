@@ -20,10 +20,10 @@ export default function Layout() {
     const isActive = (path: string) => location.pathname === path;
 
     return (
-        <div className="min-h-screen flex flex-col bg-transparent">
+        <div className="flex flex-col bg-transparent" style={{ minHeight: '100dvh' }}>
             {/* ── Navbar ── */}
             <nav className="sticky top-0 z-50 bg-[#2f3236]/75 backdrop-blur-xl border-b border-amber-500/15">
-                <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
                     <Link to="/dashboard" className="flex items-center gap-2.5 group">
                         <div className="w-7 h-7 rounded-lg bg-amber-500/15 flex items-center justify-center group-hover:bg-amber-500/25 transition">
                             <BookOpen className="w-4 h-4 text-amber-400" />

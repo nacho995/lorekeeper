@@ -45,7 +45,7 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="noise min-h-screen flex items-center justify-center px-4 relative">
+        <div className="noise flex items-center justify-center px-4 relative" style={{ minHeight: '100dvh' }}>
             {/* Background */}
             <div
                 className="absolute inset-0"

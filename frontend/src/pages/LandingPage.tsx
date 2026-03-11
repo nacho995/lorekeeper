@@ -59,34 +59,34 @@ export default function LandingPage() {
         },
     ];
     return (
-        <div className="noise min-h-screen flex flex-col">
+        <div className="noise flex flex-col" style={{ minHeight: '100dvh' }}>
             {/* ── Navbar ── */}
             <nav className="fixed top-0 inset-x-0 z-50">
-                <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-                    <Link to="/" className="flex items-center gap-2.5">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
+                    <Link to="/" className="flex items-center gap-2 shrink-0">
                         <BookOpen className="w-5 h-5 text-amber-500" />
                         <span className="text-amber-400/90 font-semibold text-sm tracking-[0.25em] uppercase">
                             Lorekeeper
                         </span>
                     </Link>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3">
                         <button
                             type="button"
                             onClick={() => setLang(lang === "en" ? "es" : "en")}
-                            className="px-3 py-1.5 rounded-lg text-xs font-bold tracking-wider border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 transition"
+                            className="px-2.5 py-1.5 rounded-lg text-xs font-bold tracking-wider border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 transition"
                             title={lang === "en" ? t("lang.spanish") : t("lang.english")}
                         >
                             {lang.toUpperCase()}
                         </button>
                         <Link
                             to="/login"
-                            className="btn-ghost text-sm px-4 py-2"
+                            className="btn-ghost hidden sm:inline-flex text-sm px-4 py-2"
                         >
                             {t("landing.signIn")}
                         </Link>
                         <Link
                             to="/register"
-                            className="btn-primary text-sm px-5 py-2"
+                            className="btn-primary text-xs sm:text-sm px-4 sm:px-5 py-2 whitespace-nowrap"
                         >
                             {t("landing.getStarted")}
                         </Link>
@@ -95,7 +95,7 @@ export default function LandingPage() {
             </nav>
 
             {/* ── Hero ── */}
-            <section className="relative flex-1 flex flex-col items-center justify-center px-6 pt-32 pb-24 text-center overflow-hidden min-h-screen">
+            <section className="relative flex-1 flex flex-col items-center justify-center px-6 pt-28 sm:pt-32 pb-20 sm:pb-24 text-center overflow-hidden" style={{ minHeight: '100dvh' }}>
                 {/* Background layers */}
                 <div
                     className="absolute inset-0"

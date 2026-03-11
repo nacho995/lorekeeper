@@ -17,18 +17,28 @@ html {
 
 body {
     background-color: #2d3034;
+    color: #ece8e2;
+    font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fixed background - using pseudo-element instead of background-attachment:fixed
+   because iOS Safari does not support background-attachment:fixed */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-color: #2d3034;
     background-image:
         linear-gradient(180deg, rgba(86, 88, 94, 0.42) 0%, rgba(32, 34, 38, 0.82) 100%),
         url("./assets/library-seamless-pattern.jpg");
     background-size: cover, 1400px 1400px;
     background-position: center, top left;
     background-repeat: no-repeat, repeat;
-    background-attachment: fixed;
     background-blend-mode: multiply;
-    color: #ece8e2;
-    font-family: "Manrope", sans-serif;
-    overflow-x: hidden;
-    position: relative;
 }
 
 body::before {
@@ -172,7 +182,17 @@ h1, h2, h3, h4, h5, .font-display {
     0%   { transform: translateY(0) scale(1); opacity: 0; }
     10%  { opacity: 1; }
     90%  { opacity: 0.5; }
-    100% { transform: translateY(-100vh) scale(0); opacity: 0; }
+    100% { transform: translateY(-100dvh) scale(0); opacity: 0; }
+}
+
+/* iOS dvh fallback for older Safari */
+@supports not (height: 100dvh) {
+    @keyframes ember-rise {
+        0%   { transform: translateY(0) scale(1); opacity: 0; }
+        10%  { opacity: 1; }
+        90%  { opacity: 0.5; }
+        100% { transform: translateY(-100vh) scale(0); opacity: 0; }
+    }
 }
 
 /* ── Animation utilities ── */
@@ -211,6 +231,13 @@ h1, h2, h3, h4, h5, .font-display {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+/* ── Safe area (notched iPhones) ── */
+@supports (padding: env(safe-area-inset-top)) {
+    .fixed.top-0, .sticky.top-0 {
+        padding-top: env(safe-area-inset-top);
+    }
 }
 
 /* ── Focus ── */

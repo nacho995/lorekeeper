@@ -42,7 +42,7 @@ export default function RegisterPage() {
     };
 
     return (
-        <div className="noise min-h-screen flex items-center justify-center px-4 py-12 relative">
+        <div className="noise flex items-center justify-center px-4 py-12 relative" style={{ minHeight: '100dvh' }}>
             {/* Background */}
             <div
                 className="absolute inset-0"
