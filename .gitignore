@@ -1,0 +1,25 @@
+# Environment
+.env
+
+# Node
+node_modules/
+dist/
+pnpm-debug.log*
+npm-debug.log*
+yarn-error.log*
+
+# .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store

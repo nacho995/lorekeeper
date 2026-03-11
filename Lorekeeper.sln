@@ -1,0 +1,95 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CC6BF9B6-4D02-48C2-82CA-E2F02E0D7E60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{559B36C2-C527-46A2-904A-98C468A50FF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{AC0118A0-FFC6-4223-B497-DBD1C82E3000}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lorekeeper.Auth.Domain", "src\Services\Auth\Lorekeeper.Auth.Domain\Lorekeeper.Auth.Domain.csproj", "{52D9B3D8-BBD3-4B79-83B8-F62D95F6006E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lorekeeper.Auth.Application", "src\Services\Auth\Lorekeeper.Auth.Application\Lorekeeper.Auth.Application.csproj", "{40088295-25AE-4FBC-A300-C86CDA5673B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lorekeeper.Auth.Infrastructure", "src\Services\Auth\Lorekeeper.Auth.Infrastructure\Lorekeeper.Auth.Infrastructure.csproj", "{0C35E088-881E-4DFE-B94A-22F4CE9FF8B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lorekeeper.Auth.Api", "src\Services\Auth\Lorekeeper.Auth.Api\Lorekeeper.Auth.Api.csproj", "{F61FCD91-7DD0-4F9E-A0FC-D258B6447088}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "World", "World", "{290B17DF-71BB-458F-B099-B5F57D4D8557}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lorekeeper.World.Api", "src\Services\World\Lorekeeper.World.Api\Lorekeeper.World.Api.csproj", "{6B2B2C1B-1013-4263-AB4D-D8C4467279F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lorekeeper.World.Application", "src\Services\World\Lorekeeper.World.Application\Lorekeeper.World.Application.csproj", "{379B8CB4-5B5A-4633-BEAD-7D8C225C038C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lorekeeper.World.Infrastructure", "src\Services\World\Lorekeeper.World.Infrastructure\Lorekeeper.World.Infrastructure.csproj", "{4D772CF7-D7BE-4D81-B1C7-4691E350C4B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lorekeeper.World.Domain", "src\Services\World\Lorekeeper.World.Domain\Lorekeeper.World.Domain.csproj", "{72BDC217-E808-4233-8B7B-D2F558A9F613}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{8C4EF0E2-DA40-44E1-90DB-0DC99EFFE2C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lorekeeper.Gateway", "src\Gateway\Lorekeeper.Gateway\Lorekeeper.Gateway.csproj", "{DD892837-FEB3-4BEC-B490-C93F98F158E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52D9B3D8-BBD3-4B79-83B8-F62D95F6006E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D9B3D8-BBD3-4B79-83B8-F62D95F6006E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D9B3D8-BBD3-4B79-83B8-F62D95F6006E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52D9B3D8-BBD3-4B79-83B8-F62D95F6006E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40088295-25AE-4FBC-A300-C86CDA5673B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40088295-25AE-4FBC-A300-C86CDA5673B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40088295-25AE-4FBC-A300-C86CDA5673B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40088295-25AE-4FBC-A300-C86CDA5673B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C35E088-881E-4DFE-B94A-22F4CE9FF8B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C35E088-881E-4DFE-B94A-22F4CE9FF8B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C35E088-881E-4DFE-B94A-22F4CE9FF8B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C35E088-881E-4DFE-B94A-22F4CE9FF8B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F61FCD91-7DD0-4F9E-A0FC-D258B6447088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F61FCD91-7DD0-4F9E-A0FC-D258B6447088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F61FCD91-7DD0-4F9E-A0FC-D258B6447088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F61FCD91-7DD0-4F9E-A0FC-D258B6447088}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B2B2C1B-1013-4263-AB4D-D8C4467279F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B2B2C1B-1013-4263-AB4D-D8C4467279F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B2B2C1B-1013-4263-AB4D-D8C4467279F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B2B2C1B-1013-4263-AB4D-D8C4467279F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{379B8CB4-5B5A-4633-BEAD-7D8C225C038C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379B8CB4-5B5A-4633-BEAD-7D8C225C038C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379B8CB4-5B5A-4633-BEAD-7D8C225C038C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379B8CB4-5B5A-4633-BEAD-7D8C225C038C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D772CF7-D7BE-4D81-B1C7-4691E350C4B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D772CF7-D7BE-4D81-B1C7-4691E350C4B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D772CF7-D7BE-4D81-B1C7-4691E350C4B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D772CF7-D7BE-4D81-B1C7-4691E350C4B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72BDC217-E808-4233-8B7B-D2F558A9F613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BDC217-E808-4233-8B7B-D2F558A9F613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BDC217-E808-4233-8B7B-D2F558A9F613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BDC217-E808-4233-8B7B-D2F558A9F613}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD892837-FEB3-4BEC-B490-C93F98F158E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD892837-FEB3-4BEC-B490-C93F98F158E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD892837-FEB3-4BEC-B490-C93F98F158E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD892837-FEB3-4BEC-B490-C93F98F158E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{559B36C2-C527-46A2-904A-98C468A50FF1} = {CC6BF9B6-4D02-48C2-82CA-E2F02E0D7E60}
+		{AC0118A0-FFC6-4223-B497-DBD1C82E3000} = {559B36C2-C527-46A2-904A-98C468A50FF1}
+		{52D9B3D8-BBD3-4B79-83B8-F62D95F6006E} = {AC0118A0-FFC6-4223-B497-DBD1C82E3000}
+		{40088295-25AE-4FBC-A300-C86CDA5673B4} = {AC0118A0-FFC6-4223-B497-DBD1C82E3000}
+		{0C35E088-881E-4DFE-B94A-22F4CE9FF8B2} = {AC0118A0-FFC6-4223-B497-DBD1C82E3000}
+		{F61FCD91-7DD0-4F9E-A0FC-D258B6447088} = {AC0118A0-FFC6-4223-B497-DBD1C82E3000}
+		{290B17DF-71BB-458F-B099-B5F57D4D8557} = {559B36C2-C527-46A2-904A-98C468A50FF1}
+		{6B2B2C1B-1013-4263-AB4D-D8C4467279F0} = {290B17DF-71BB-458F-B099-B5F57D4D8557}
+		{379B8CB4-5B5A-4633-BEAD-7D8C225C038C} = {290B17DF-71BB-458F-B099-B5F57D4D8557}
+		{4D772CF7-D7BE-4D81-B1C7-4691E350C4B4} = {290B17DF-71BB-458F-B099-B5F57D4D8557}
+		{72BDC217-E808-4233-8B7B-D2F558A9F613} = {290B17DF-71BB-458F-B099-B5F57D4D8557}
+		{8C4EF0E2-DA40-44E1-90DB-0DC99EFFE2C3} = {CC6BF9B6-4D02-48C2-82CA-E2F02E0D7E60}
+		{DD892837-FEB3-4BEC-B490-C93F98F158E0} = {8C4EF0E2-DA40-44E1-90DB-0DC99EFFE2C3}
+	EndGlobalSection
+EndGlobal

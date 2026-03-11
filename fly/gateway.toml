@@ -1,0 +1,18 @@
+app = "lorekeeper-gateway"
+
+[build]
+  dockerfile = "../Dockerfile"
+
+[env]
+  ASPNETCORE_URLS = "http://+:8080"
+  CORS_ORIGINS = "https://lorekeeper-web.fly.dev"
+  ReverseProxy__Clusters__auth-cluster__Destinations__auth__Address = "http://lorekeeper-auth.internal:8080"
+  ReverseProxy__Clusters__worlds-cluster__Destinations__worlds__Address = "http://lorekeeper-world.internal:8080"
+  ReverseProxy__Clusters__ai-cluster__Destinations__ai__Address = "http://lorekeeper-ai.internal:8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 1
